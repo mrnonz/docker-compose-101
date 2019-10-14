@@ -5,6 +5,28 @@ services:
     build: https://github.com/mrnonz/docker-compose-101-lab04.git
     ports:
       - "8004:5000"
+    volumes:
+      - shared-data:/code
+    networks:
+      - front-tier
 
   redis:
     image: "redis:alpine"
+    networks:
+      - front-tier
+      - back-tier
+
+  curl:
+    image: "mrnonz/curl"
+    command: "sleep 99999"
+    volumes:
+      - shared-data:/code
+    networks:
+      - back-tier
+
+volumes:
+  shared-data:
+
+networks:
+  front-tier:
+  back-tier:
