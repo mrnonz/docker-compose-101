@@ -16,8 +16,8 @@ services:
       - front-tier
       - back-tier
 
-  curl:
-    image: "mrnonz/curl"
+  misc:
+    image: "alpine"
     command: "sleep 99999"
     volumes:
       - shared-data:/code
