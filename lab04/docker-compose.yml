@@ -3,6 +3,7 @@ version: "3"
 services:
   web:
     build: https://github.com/mrnonz/docker-compose-101-lab04.git
+    env_file: web.env
     ports:
       - "8004:5000"
     volumes:
